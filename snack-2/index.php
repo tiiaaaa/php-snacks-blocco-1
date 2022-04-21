@@ -31,6 +31,17 @@ $ads = [
 
 ];
 
+$activeAds = [];
+
+foreach($ads as $ad) {
+    if($ad['is_active']){
+        $activeAds = $ad;
+    }
+}
+
+// Alternativa: $randomAd = $activeAds[array_rand($activeAds, 1)]
+$randomAd = $activeAds[rand(0, count($activeAds)-1)];
+
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +54,9 @@ $ads = [
 </head>
 <body>
     <div>
-        <ul>
-            <?php foreach($ads as $ad) { ?>
-
-            <?php } ?>
-        </ul>
+        <a href="<?php echo $randomAd['link']; ?>">
+            <img src="<?php echo $randomAd['image_path']; ?>" alt="">
+        </a>
     </div>
 </body>
 </html>

@@ -18,8 +18,16 @@ infine crea un array associativo della forma:
 
     $string = "c,i,n,q,u,e";
 
-    $array = str_split($string, 1);
-    var_dump($array);
+    $array = explode(',', $string);
+    
+    $result = [];
+    foreach($array as $char){
+        $result[$char] = $char;
+    }
+
+    var_dump($result)
+
+    
 
 ?>
 
